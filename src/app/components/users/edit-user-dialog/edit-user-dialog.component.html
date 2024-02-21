@@ -1,0 +1,60 @@
+<div class="dialog">
+
+<form [formGroup]="userForm">
+    <p class="text"> <b>Edit User</b></p>
+    <div class="rows">
+    <mat-form-field class="inputs">
+        <input matInput formControlName="firstName" placeholder="First Name">
+      </mat-form-field>
+
+      <mat-form-field class="inputs">
+        <input matInput formControlName="lastName" placeholder="Last Name">
+      </mat-form-field>
+    </div>
+    <div class="rows">
+
+      <mat-form-field class="inputs">
+        <input matInput formControlName="age" placeholder="Age">
+      </mat-form-field>
+
+      <mat-form-field class="inputs">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Male">Male</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="rows" >
+
+      <mat-form-field class="inputs">
+        <input matInput formControlName="city" placeholder="City">
+      </mat-form-field>
+
+      <mat-form-field class="inputs">
+        <input
+          matInput
+          formControlName="country"
+          placeholder="Country"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <div *ngFor="let country of filteredCountries$  | async" >
+            <mat-option
+              
+              [value]="country"
+            >
+              {{ country }}
+            </mat-option>
+          </div>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      </div>
+
+      <div class="dialog-buttons">
+        <button mat-raised-button style="background-color: #efd198;" (click)="onSave()">Update</button>
+        <button mat-button (click)="onCancel()">Close</button>
+      </div>
+</form>
+</div>

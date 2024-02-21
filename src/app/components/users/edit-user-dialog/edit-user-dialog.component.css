@@ -1,0 +1,22 @@
+.dialog{
+    background-color: #f7f7c8;
+}
+.rows{
+    display: flex;
+    justify-content: center;
+}
+
+.inputs{
+    margin: 7px;
+}
+
+.text{
+    margin-top: 30px; 
+    text-align: center; 
+    font-size: large;
+}
+.dialog-buttons {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }

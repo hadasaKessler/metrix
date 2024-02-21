@@ -1,0 +1,51 @@
+<div class="homePage">
+
+  <div class="title-container">
+    <h2>My Users</h2>
+  </div>
+  <div class="table-container">
+
+<table>
+    <thead>
+        <tr class="tableHeader">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Country</th>
+            <th>City</th>
+            <th></th>
+          </tr>
+    </thead>
+    <tbody *ngIf="users && users.length > 0; else noUsersMessage">
+      <tr *ngFor="let user of users; let i = index" 
+      [ngClass]="{'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0}">
+
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.age }}</td>
+        <td>{{ user.country }}</td>
+        <td>{{ user.city }}</td>
+
+         <button mat-icon-button (click)="openEditUserDialog(user)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          
+          <button mat-icon-button (click)="removeUser(user)">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+    </tr>
+</tbody>
+
+</table>
+</div>
+<button mat-fab class="add-button"  color="green" (click)="openAddUserDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+<ng-template #noUsersMessage>
+    <p class="noUsersMessage">No Users</p>
+  </ng-template>
+</div>
